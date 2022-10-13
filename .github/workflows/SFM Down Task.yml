@@ -4,7 +4,6 @@ on:
 
   push:
     branches: [ main , master]
-    # branches: [ main ]
 
 
 
@@ -23,7 +22,7 @@ jobs:
     # 框架下载
     - name: 框架下载
       run: |
-        swift package resolve
+        swift package update
         echo "✅✅✅✅✅✅✅"
         ls -l -a .build
 

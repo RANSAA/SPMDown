@@ -21,7 +21,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.2.6"),//2.0.0
         .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0"),
-        .package(url: "https://kgithub.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.6.0")),
+        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.6.0")),
         .package(url: "https://github.com/luoxiu/Schedule", .upToNextMajor(from: "2.0.0")), //Swift API Timer
     ],
     targets: [

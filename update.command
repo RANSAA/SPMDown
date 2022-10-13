@@ -18,7 +18,6 @@ clear
 
 
 
-echo "更新.........................."
 git add .
 git commit -m "更新Package.swift"
 git push

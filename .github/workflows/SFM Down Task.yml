@@ -19,7 +19,7 @@ jobs:
     # macos-12
     # macos-latest or macos-11
     # macos-10.15
-    runs-on: macos-10.15
+    runs-on: macos-latest
 
     steps:
     # 检出代码
@@ -68,10 +68,10 @@ jobs:
         echo '### Swift Package Manager' > ReleaseNotes.md
         echo "" >> ReleaseNotes.md
         echo "更新时间：$(date '+%Y-%m-%d %H:%M:%S')" >> ReleaseNotes.md
-        echo 'SourcePackages: \' >> ReleaseNotes.md
-        echo 'spm-full:全部 \' >> ReleaseNotes.md
-        echo 'spm-repositories:不含checkouts部分 \' >> ReleaseNotes.md
-        echo "提示：如果两者的大小区别不大时，建议下载full版本。" >> ReleaseNotes.md
+        echo "使用方法：\ " >> ReleaseNotes.md
+        echo "1. 下载Package.resolved文件，并替换本地项目的同名文件。 \ " >> ReleaseNotes.md
+        echo '2. 下载sfm文件到本地，并替换本地项目的SourcePackages即可。\ ' >> ReleaseNotes.md
+        echo '3. sfm分两个版：sfm-full和sfm-repositories，如果二者大小区别不大，推荐下载sfm-full版本。' >> ReleaseNotes.md
 
 
     # 删除旧的预览发布    

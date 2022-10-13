@@ -19,7 +19,7 @@ jobs:
     # macos-12
     # macos-latest or macos-11
     # macos-10.15
-    runs-on: macos-latest
+    runs-on: macos-10.15
 
     steps:
     # 检出代码
@@ -33,6 +33,8 @@ jobs:
         swift package resolve
         echo "✅✅✅✅✅✅✅"
         ls -l -a .build
+        echo "✅✅✅✅✅✅✅"
+        ls -l -a 
 
 
     - name: 压缩
@@ -40,6 +42,7 @@ jobs:
         sleep 0.5
         mv .build SourcePackages
         mkdir -p archive
+        cp Package.resolved archive/
         sleep 0.5
         zip -r archive/sfm-full.zip SourcePackages
         sleep 0.5

@@ -92,7 +92,6 @@ jobs:
 
 
 
-
 # #第二个job，将结果推送到另一个仓库
 #   deploy: 
 #     name: 推送到AutoTaskPush

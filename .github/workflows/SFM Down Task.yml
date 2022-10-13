@@ -24,6 +24,8 @@ jobs:
     - name: 框架下载
       run: |
         swift package resolve
+        echo "✅✅✅✅✅✅✅"
+        ls -l -a .build
 
 
     - name: 压缩

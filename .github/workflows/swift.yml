@@ -21,8 +21,12 @@ jobs:
           # Set an output parameter `uname` for use in subsequent steps
           run: |
             uname -a
+            uname -m
             ls -la
             echo ::set-output name=uname1::$(uname -a)
+            curl -s https://archive.swiftlang.xyz/install.sh | sudo bash
+            sudo apt-get install swiftlang
+            swift -version
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step

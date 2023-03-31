@@ -12,7 +12,7 @@ jobs:
   Build-and-Run-FizzBuzz-arm:
     strategy: 
       matrix: 
-        os: [ubuntu-latest, [self-hosted, linux, ARM64]] 
+        os: [ubuntu-latest, [ linux, ARM64]] 
     runs-on: ${{ matrix.os }}
     steps: 
       - name: Check out repository code 

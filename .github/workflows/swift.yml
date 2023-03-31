@@ -21,9 +21,12 @@ jobs:
           # Set an output parameter `uname` for use in subsequent steps
           run: |
             uname -a
+            ls -la
             echo ::set-output name=uname1::$(uname -a)
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step
         run: |
           echo "The uname output was ${{ steps.runcmd.outputs.uname1 }}"
+          uname -m
+          ls -la

@@ -9,7 +9,7 @@ name:  Swift Package Manager
 on:
 
   push:
-    branches: [ main , master]
+   # branches: [ main , master]
 
 
 

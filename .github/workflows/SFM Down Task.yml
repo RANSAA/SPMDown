@@ -23,39 +23,61 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build VPNParser
+      - name: Show Info
         run: |
           uname
           uname -m
           echo ${{ matrix.os }}
+      - name: Down Swift Package
+        run: |
+          swift package resolve
+          echo "✅✅✅✅✅✅✅"
+          ls -la .build
+          echo "✅✅✅✅✅✅✅"
           pwd
           ls -la
+      - name: Archive SourcePackages
+        run: |
+          sleep 0.5
+          mv .build SourcePackages
+          mkdir -p archive
+          cp Package.resolved archive/
+          sleep 0.5
+          zip -r "archive/${{matrix.os}}-sfm-full.zip" SourcePackages
+          sleep 0.5
+          rm -rf SourcePackages/checkouts
+          sleep 0.5
+          zip -r "archive/${{matrix.os}}-sfm-repositories.zip" SourcePackages
+          sleep 0.5
+
+
+      # 构建预览发布信息
+      - name: Generate Prerelease Release
+        id: create_release
+        run: |
+          echo '### Swift Package Manager' > ReleaseNotes.md
+          echo "" >> ReleaseNotes.md
+          echo "使用方法：" >> ReleaseNotes.md
+          echo "1. 下载Package.resolved文件，并替换本地项目的同名文件。 " >> ReleaseNotes.md
+          echo '2. 下载sfm文件到本地，并替换本地项目的SourcePackages即可。' >> ReleaseNotes.md
+          echo '3. sfm分两个版：sfm-full和sfm-repositories，如果二者大小区别不大，推荐下载sfm-full版本。' >> ReleaseNotes.md
+          echo "" >> ReleaseNotes.md
 
 
 
-      # # 构建预览发布信息
-      # - name: Generate Prerelease Release
-      #   id: create_release
-      #   run: |
-      #     echo '### VPNParser解析工具' > ReleaseNotes.md
-      #     echo "Swift Version: 5.7" >> ReleaseNotes.md
-
-
-
-
-      # # 发布
-      # - name: Publish GitHub Release
-      #   # if: contains(github.event.head_commit.message, 'Bump version') == false
-      #   uses: ncipollo/release-action@v1.12.0
-      #   with:
-      #     allowUpdates: true
-      #     replacesArtifacts: true
-      #     prerelease: false
-      #     draft: false
-      #     bodyFile: ReleaseNotes.md
-      #     artifacts: "./VPNParser/Release/*.zip"
-      #     tag: "v1.0.0"
-      #     token: ${{ secrets.GITHUB_TOKEN }}   
+      # 发布
+      - name: Publish GitHub Release
+        # if: contains(github.event.head_commit.message, 'Bump version') == false
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          replacesArtifacts: true
+          prerelease: false
+          draft: false
+          bodyFile: ReleaseNotes.md
+          artifacts: "./archive/*.zip"
+          tag: "v1.0.0"
+          token: ${{ secrets.GITHUB_TOKEN }}   
 
 
 

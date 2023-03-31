@@ -9,7 +9,7 @@ jobs:
       - run: uname -m
 
 
-  Build-and-Run-FizzBuzz:
+  Build-and-Run-FizzBuzz-arm:
     strategy: 
       matrix: 
         os: [ubuntu-latest, [self-hosted, linux, ARM64]] 

@@ -1,0 +1,17 @@
+name: Custom GitHub Actions runner Demo 
+on: [push] 
+jobs: 
+  Build-and-Run-FizzBuzz: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Check out repository code 
+        uses: actions/checkout@v3 
+      - run: uname -m
+
+jobs: 
+  Build-and-Run-FizzBuzz:
+    strategy: 
+      matrix: 
+        os: [ubuntu-latest, [self-hosted, linux, ARM64]] 
+    runs-on: ${{ matrix.os }}
+    - run: uname -m

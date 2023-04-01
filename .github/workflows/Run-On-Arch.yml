@@ -44,12 +44,12 @@ on: [push, pull_request]
 
 jobs:
   aarch64_job:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     name: Build on Ubuntu aarch64
     steps:
       - uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
-        name: Run commands
+      - name: Run commands
         id: runcmd
         with:
           arch: aarch64
@@ -64,7 +64,6 @@ jobs:
             echo ::set-output name=uname1::$(uname -a)
             ls -la
             ./swift-env-ubuntu-22.04.sh
-          # sudo apt-get install swiftlang
             swift -version
 
       - name: Get the output

@@ -95,11 +95,13 @@ jobs:
           distro: ubuntu22.04
           # Not required, but speeds up builds by storing container images in
           # a GitHub package registry.
-          githubToken: ${{ github.token }}
+          # githubToken: ${{ github.token }}
 
           # Set an output parameter `uname` for use in subsequent steps
           shell: /bin/sh
-          # install: |
+          install: |
+            apt-get update -q -y
+            apt-get install -q -y git
           #   apt-get install -q -y wget
           run: |
             uname -a

@@ -101,6 +101,7 @@ jobs:
             uname -a
             echo ::set-output name=uname1::$(uname -a)
             ls -la
+            apt-get install wget
             ./swift-env-ubuntu-22.04.sh
             swift -version
 

@@ -81,8 +81,6 @@ jobs:
         id: system-info
         run: |
           echo ${{ matrix.os }}
-          uname
-          uname -m
           uname -a
           swift --version
           
@@ -96,10 +94,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Show System Info
         run: |
-          uname
-          uname -m
           uname -a
           swift --version
+
+
+
 
 
 

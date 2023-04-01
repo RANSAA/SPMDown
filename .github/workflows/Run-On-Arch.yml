@@ -76,6 +76,8 @@ on: [push, pull_request]
 
 
 
+          # ./swift-env-ubuntu-22.04.sh
+          # swift -version
 
 
 
@@ -102,8 +104,6 @@ jobs:
             echo "{uname1}={$(uname -a)}" >> $GITHUB_OUTPUT
             ls -la
             apt-get install wget
-          # ./swift-env-ubuntu-22.04.sh
-          # swift -version
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step

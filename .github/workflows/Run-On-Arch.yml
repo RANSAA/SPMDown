@@ -100,7 +100,7 @@ jobs:
           # Set an output parameter `uname` for use in subsequent steps
           shell: /bin/sh
           install: |
-            apt-get update -q -y
+            apt-get update 
             apt-get update -q -y apt-utils
             apt-get install -q -y git
             apt-get install -q -y wget

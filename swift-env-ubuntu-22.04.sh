@@ -46,15 +46,17 @@ exportSwift()
     echo "swift 5.7 加入环境变量中成功"
 }
 
-swiftBin=$(pwd)/../swiftlang/5.7/usr/bin
-if [[ -d "$swiftBin" ]]; then
-    echo "缓存中找到Swift 5.7"
-    exportSwift
-else
-    echo "缓存中没有找到Swift 5.7"
-    installSiwft
-    exportSwift
-fi
+# swiftBin=$(pwd)/../swiftlang/5.7/usr/bin
+# if [[ -d "$swiftBin" ]]; then
+#     echo "缓存中找到Swift 5.7"
+#     exportSwift
+# else
+#     echo "缓存中没有找到Swift 5.7"
+#     installSiwft
+#     exportSwift
+# fi
 
+installSiwft
+exportSwift
 
 

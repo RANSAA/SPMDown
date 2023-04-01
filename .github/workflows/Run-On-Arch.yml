@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
-      - name: Run commands
+        name: Run commands
         id: runcmd
         with:
           arch: aarch64

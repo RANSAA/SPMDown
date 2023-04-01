@@ -101,7 +101,7 @@ jobs:
           shell: /bin/sh
           run: |
             uname -a
-            echo "{uname1}={$(uname -a)}" >> $GITHUB_OUTPUT
+            echo "uname1=$(uname -a)" >> $GITHUB_OUTPUT
             ls -la
             apt-get install wget
 

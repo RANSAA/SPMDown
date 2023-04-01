@@ -47,7 +47,7 @@ jobs:
         if: ${{ matrix.os }} != "ubuntu-22.04-arm64"
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: '5.7.3'
+          swift-version: '5.7.0'
       - name: Show System Info
         id: system-info
         run: |

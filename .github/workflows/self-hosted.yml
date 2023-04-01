@@ -35,13 +35,13 @@ on: [push]
 
 jobs:
   artifact-build:
-    if: matrix.os == 'ubuntu-22.04-arm64'
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04,  macos-12, ubuntu-22.04-arm64]
     steps:
+      if: matrix.os == 'ubuntu-22.04-arm64'
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Swift

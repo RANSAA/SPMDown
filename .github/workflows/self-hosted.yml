@@ -35,7 +35,7 @@ on: [push]
 
 jobs:
   artifact-build:
-    if: matrix.os == 'ubuntu-22.04-arm64' && contains(github.event.head_commit.message, 'linux-arm64')
+    if: ${{ matrix.os }} == 'ubuntu-22.04-arm64' && contains(github.event.head_commit.message, 'linux-arm64')
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

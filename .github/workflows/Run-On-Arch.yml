@@ -101,13 +101,14 @@ jobs:
           shell: /bin/sh
           install: |
             apt-get update -q -y
+            apt-get update -q -y apt-utils
             apt-get install -q -y git
             apt-get install -q -y wget
-            ./swift-env-ubuntu-22.04.sh
           run: |
             uname -a
             echo ::set-output name=uname1::$(uname -a)
             echo "123" > 123.txt
+            /bin/sh ./swift-env-ubuntu-22.04.sh
             ls -la
             swift -version
 

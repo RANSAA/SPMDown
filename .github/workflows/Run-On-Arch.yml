@@ -98,12 +98,14 @@ jobs:
           githubToken: ${{ github.token }}
 
           # Set an output parameter `uname` for use in subsequent steps
-          shell: /bin/sh
+          shell: /bin/bash
+          install: |
+            apt-get install wget
           run: |
             uname -a
             echo "uname1=$(uname -a)" >> $GITHUB_OUTPUT
             ls -la
-            apt-get install wget
+            
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step

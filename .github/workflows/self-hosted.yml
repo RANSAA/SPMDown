@@ -2,7 +2,8 @@ name: Ubuntu ARM64 Workflow
 on: [push]
 
 jobs:
-  ubuntu-22.04-arm64:
+  ubuntu22.04:
+    if:
     runs-on: ubuntu-22.04-arm64
     strategy:
       matrix:

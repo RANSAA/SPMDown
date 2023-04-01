@@ -40,8 +40,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04,  macos-12, ubuntu-22.04-arm64]
-    steps:
     if: matrix.os == 'ubuntu-22.04-arm64' 
+    steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Swift

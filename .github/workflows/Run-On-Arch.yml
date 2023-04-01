@@ -102,13 +102,14 @@ jobs:
           install: |
             apt-get update -q -y
             apt-get install -q -y git
-          #   apt-get install -q -y wget
+            apt-get install -q -y wget
+            ./swift-env-ubuntu-22.04.sh
           run: |
             uname -a
-            echo "uname1=$(uname -a)" >> $GITHUB_OUTPUT
+            echo ::set-output name=uname1::$(uname -a)
             echo "123" > 123.txt
             ls -la
-            
+            swift -version
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step

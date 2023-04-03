@@ -99,17 +99,15 @@ jobs:
 
           # Set an output parameter `uname` for use in subsequent steps
           shell: /bin/sh
-          install: |
-            apt-get update -q -y
-            apt-get install -q -y git
-            apt-get install -q -y wget
+          # install: |
+          #   apt-get update -q -y
+          #   apt-get install -q -y git
+          #   apt-get install -q -y wget
           run: |
-            uname -a
-            echo ::set-output name=uname1::$(uname -a)
-            echo "123" > 123.txt
-            /bin/sh ./swift-env-ubuntu-22.04.sh
-            ls -la
-            swift -version
+            sudo apt update && sudo apt upgrade
+            sudo apt install curl
+            curl -s https://archive.swiftlang.xyz/install.sh | sudo bash
+            sudo apt install swiftlang
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step

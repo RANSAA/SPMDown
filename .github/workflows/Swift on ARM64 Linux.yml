@@ -5,9 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    arch: arm64
     container:
       image: swift
+      platform: arm64
     steps:
     - uses: actions/checkout@v2
     - name: Build and test

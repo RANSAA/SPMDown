@@ -42,7 +42,7 @@
 
 
 
-name: Swift on Linux Arm64
+name: Swift on Linux Arm64123
 
 on: [push, pull_request]
 
@@ -51,9 +51,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: swift:latest
-     #options: --platform arm64
+      options: --platform linux/arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: info
+      - name: Build
         run: swift -version

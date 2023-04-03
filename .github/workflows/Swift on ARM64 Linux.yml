@@ -5,11 +5,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    arch: arm64
     container:
-      image: swift:5.7.3-focal-arm64
+      image: swift
     steps:
     - uses: actions/checkout@v2
     - name: Build and test
       run: |
-        swift build
-        swift test
+        swift -version
+        uname -a

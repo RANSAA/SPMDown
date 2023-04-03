@@ -3,6 +3,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: swiftarm/swift
     steps:
     - name: Checkout code
       uses: actions/checkout@v2

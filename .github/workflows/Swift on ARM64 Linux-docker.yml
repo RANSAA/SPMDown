@@ -16,3 +16,6 @@ jobs:
         file: Dockerfile
         platform: linux/arm64
         target: myapp
+    - name: info
+      run: |
+        uname -a

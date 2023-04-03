@@ -17,24 +17,43 @@
 
 
 
-name: Arm64 Swift Example
+# name: Arm64 Swift Example
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         platform: [arm64]
+#     container:
+#       image: swiftarm/swift
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Build and Test
+#       run: |
+#         uname -a
+#         swift -version
+
+
+
+
+name: Swift on Linux Arm64
+
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [arm64]
     container:
-      image: swiftarm/swift
+      image: swift:latest
+      options: --platform linux/arm64
     steps:
-    - uses: actions/checkout@v2
-    - name: Build and Test
-      run: |
-        uname -a
-        swift -version
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: swift -version

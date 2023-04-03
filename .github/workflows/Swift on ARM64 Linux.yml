@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: swift:5.4-focal-arm64
+      image: swift:arm64
     steps:
     - uses: actions/checkout@v2
     - name: Build and test

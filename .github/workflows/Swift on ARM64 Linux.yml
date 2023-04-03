@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: swift:latest
-      options: --platform linux/arm64
+      options: --platform arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v3

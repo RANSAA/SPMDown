@@ -1,16 +1,45 @@
-name: Swift on ARM64 Linux
+# name: Swift on ARM64 Linux
 
-on: [push]
+# on: [push]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     container:
+#       image: swiftarm/swift
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Build and test
+#       run: |
+#         swift -version
+#         uname -a
+
+
+
+
+name: Arm64 Swift Example
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: swiftarm/swift
+    strategy:
+      matrix:
+        platform: [arm64]
     steps:
-    - uses: actions/checkout@v3
-    - name: Build and test
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get install -y clang libicu-dev libssl-dev
+    - name: Install Swift
+      uses: komputing/setup-swift-action@v1
+      with:
+        swift-version: '5.5'
+        platform: ${{ matrix.platform }}
+    - name: Build and Test
       run: |
-        docker run -it swiftarm/swift /bin/bash
-        swift -version
         uname -a
+        swift -version

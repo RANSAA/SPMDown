@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: swiftarm/swift
+      platform: linux/amd64
     steps:
     - uses: actions/checkout@v3
     - name: Build and test

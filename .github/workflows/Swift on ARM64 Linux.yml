@@ -6,11 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: swift-arm64
-    
+      image: swift:5.7.3-focal-arm64
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Build and test
       run: |
-        uname -a
-        swift -version
+        swift build
+        swift test

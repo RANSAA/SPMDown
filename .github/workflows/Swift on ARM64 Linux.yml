@@ -30,6 +30,8 @@ jobs:
     strategy:
       matrix:
         platform: [arm64]
+    container:
+      image: swiftarm/swift
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies

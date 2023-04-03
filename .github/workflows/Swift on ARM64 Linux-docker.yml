@@ -1,0 +1,19 @@
+name: Swift on ARM64 Linux-docker
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+
+    - name: Build and run Docker image
+      uses: docker/buildx-build-action@v2
+      with:
+        context: .
+        file: Dockerfile
+        platform: linux/arm64
+        target: myapp

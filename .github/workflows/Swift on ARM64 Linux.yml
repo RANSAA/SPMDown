@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: swiftarm/swift
+      image: swiftarm/ubuntu_focal
     steps:
     - uses: actions/checkout@v3
     - name: Build and test
